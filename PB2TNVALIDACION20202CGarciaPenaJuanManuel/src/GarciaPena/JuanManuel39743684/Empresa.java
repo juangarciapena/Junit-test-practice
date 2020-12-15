@@ -17,8 +17,9 @@ public class Empresa {
 	
 	private int id;
 
-	public Empresa() {
-		
+	public Empresa(String nombre) {
+		this.nombre=nombre;
+		this.flota = new HashMap<Integer, Camion>();
 		id=0;
 	}
 

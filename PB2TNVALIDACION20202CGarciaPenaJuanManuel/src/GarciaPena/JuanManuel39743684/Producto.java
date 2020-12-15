@@ -6,6 +6,12 @@ public class Producto {
 	private Double precio;
 	private String descripcion;
 	private Double peso;
+	public Producto(int i, double d, String string, double e) {
+		this.id=i;
+		this.precio=d;
+		this.descripcion=string;
+		this.peso=e;
+	}
 	public Integer getId() {
 		return id;
 	}
