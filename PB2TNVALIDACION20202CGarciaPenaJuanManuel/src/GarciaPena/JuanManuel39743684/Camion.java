@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
+
 public class Camion  {
 	
 	// completar la clase Empresa
@@ -19,6 +21,8 @@ public class Camion  {
 	
 	public Camion (String patente) {
 	
+		this.patente=patente;
+		listaProductos = new ArrayList <Producto>();
 	}
 	
 	
@@ -28,24 +32,38 @@ public class Camion  {
 		 *   
 		 * 
 		 */
+		if(listaProductos.add(producto))
+			return true;
 		
-		
-		return null;
+		return false;
 	
 	}
 	
 	
-	public Producto descargarProducto(Integer idProducto) {
+	public Producto descargarProducto(Integer idProducto) throws ProductoInexistenteException {
 	
+		Producto producto;
+		producto = buscarProducto(idProducto);
+		if(producto==null)
+			throw new ProductoInexistenteException("No existe el producto en la lista");
+		
+		listaProductos.remove(producto);
 		/*
 		 * buesca y un producto por su id y devuelve el producto encontrado
 		 * por otro lado elimina dicho producto de la coleccion
 		 * encaso que el idProducto no se encuentre retorna una exception ProductoInexistenteException
 		 */
-		
-	return null;
+	return producto;
 	}
 	
+	public Producto buscarProducto(int i) {
+		for (Producto x : listaProductos) {
+			if ((x.getId().equals(i))==true) {
+				return x;
+			} 
+		}
+		return null;
+	}
 
 	public String getPatente() {
 		return patente;

@@ -14,21 +14,25 @@ public class Empresa {
 	// conveniente
 	private String nombre;
 	private HashMap<Integer, Camion> flota;
+	
+	private int id;
 
 	public Empresa() {
 		
+		id=0;
 	}
 
 	public void agregarCamion(Camion camion) {
-
+		this.flota.put(id ,camion);
+		id++;
 		// se agrega uncamion el primer camion tiene como identificador 0 el el segundo
 		// 1 2 3.4
 
 	}
 
 	public Integer cantidadDeCamiones() {
-
-		return null;
+		
+		return flota.size();
 	}
 
 	public TreeSet<Camion> obtenerTiendascamionOrdenadoPorPatente() {
