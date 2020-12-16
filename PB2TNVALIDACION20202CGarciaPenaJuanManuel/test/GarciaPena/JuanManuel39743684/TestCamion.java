@@ -15,21 +15,30 @@ public class TestCamion {
 	//opcional
 	@Test
 	public void queSeAgregueUnProducto() {
-	
+		Empresa empresa = new Empresa("El sol");
+		Camion camion = new Camion("ABC123");
+		Producto producto = new Producto (1,10.0,"papa",10.0);
+		camion.cargarProducto(producto);
+		
+		assertEquals(1,camion.getListaProductos().size());
+
 	}
 	
 	//opcional
 	@Test
 	public void queSeDescargueUnProducto() {
-	
+		
 	}
 	
 	//obligatorio
-	@Test
+	@Test(expected = ProductoInexistenteException.class)
+	public void queDescargueUnProductoInexistenteLanceUnaException() throws ProductoInexistenteException {
+		Empresa empresa = new Empresa("El sol");
+		Camion camion = new Camion("ABC123");
 	
-	public void queDescargueUnProductoInexistenteLanceUnaException() {
+		
 	
-	
+		camion.descargarProducto(1);
 	}
 	
 }

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
+
+
 public class Empresa {
 
 	// completar la clase Empresa
@@ -37,9 +39,20 @@ public class Empresa {
 	}
 
 	public TreeSet<Camion> obtenerTiendascamionOrdenadoPorPatente() {
+		TreeSet<Camion> camionesOrdenados = new TreeSet<Camion>(flota.values());
 		
-		
-		return null;
+
+		return camionesOrdenados;
 	}
+	public TreeSet<Camion> obtenerTiendascamionOrdenadoPorPatente2() {
+		TreeSet<Camion> camionesOrdenados = new TreeSet<Camion>(new ordenarPorPatente());
+
+		for (Camion x : flota.values()) {
+			camionesOrdenados.add(x);
+		}
+
+		return camionesOrdenados;
+	}
+
 
 }

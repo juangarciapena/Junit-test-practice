@@ -7,7 +7,7 @@ import java.util.List;
 
 
 
-public class Camion  {
+public class Camion implements Comparable<Camion> {
 	
 	// completar la clase Empresa
 
@@ -82,6 +82,14 @@ public class Camion  {
 
 	public void setListaProductos(List<Producto> listaProductos) {
 		this.listaProductos = listaProductos;
+	}
+
+
+	@Override
+	public int compareTo(Camion o) {
+		// TODO Auto-generated method stub
+	
+		return this.getPatente().compareTo(o.getPatente());
 	}
 
 
